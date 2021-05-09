@@ -3,7 +3,7 @@ from flask import Flask, render_template, request, session, redirect, send_file,
 from pytube import YouTube
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = "meet"
+#app.config['SECRET_KEY'] = "meet"
 
 def download(url):
     video = url.streams.first()
