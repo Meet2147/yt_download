@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<head>
+    <title>LAB</title>
+    <script>
+        function show(){
+            var container = document.getElementById("show");
+            container.innerHTML = "<p> Your video will be downloaded shortly"
+        }
+    </script>
+</head>
+<body>
+    <h1>YouTube Video Downloader</h1> <br> <br>
+    <form action = "{{ url_for('see_video') }}" method="POST">
+        <h3>{{ url.title }}</h3> <br> <br>
+        <select name="itag">
+            {% for i in url.streams %}
+
+                <option value="{{ i.itag }}">{{ i.mime_type }} {{ i.resolution }}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Download" onclick="show()">
+    </form>
+    <div id="show"></div>
+</body>
+</head>
